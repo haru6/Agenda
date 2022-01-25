@@ -5,4 +5,7 @@
     <string name="telefone">Telefone</string>
     <string name="email">Email</string>
     <string name="save">Salvar</string>
+    <string name="add">+</string>
+    <string name="ok">OK</string>
+
 </resources>
