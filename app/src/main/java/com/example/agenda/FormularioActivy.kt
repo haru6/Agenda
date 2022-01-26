@@ -5,28 +5,20 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
-import java.util.zip.Inflater
+import com.example.agenda.dao.AlunoDAO
+import com.example.agenda.model.Aluno
 
 class FormularioActivy : AppCompatActivity() {
+
+    private lateinit var formularioHelper: FormularioHelper
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formulario_activy)
-        botaoSalvar()
-    }
-
-    private fun botaoSalvar(){
-        val btn_salvar: Button = findViewById(R.id.formulario_btn_salvar)
-        btn_salvar.setOnClickListener(View.OnClickListener {
-            Toast.makeText(
-                this@FormularioActivy,
-                "Botão Clicado",
-                Toast.LENGTH_SHORT,
-            ).show()
-        finish()
-        })
+        formularioHelper = FormularioHelper(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -37,10 +29,15 @@ class FormularioActivy : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_formulario_ok ->
-                Toast.makeText(this@FormularioActivy, "Aluno Salvo", Toast.LENGTH_SHORT).show()
+            R.id.menu_formulario_ok -> {
+                val aluno: Aluno = formularioHelper.getAluno()
+                val alunoDAO: AlunoDAO = AlunoDAO(this)
+                alunoDAO.inserir(aluno)
+                alunoDAO.close()
+                Toast.makeText(this@FormularioActivy, "Aluno " + aluno.nome + " salvo", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
-        finish()
         return super.onOptionsItemSelected(item)
     }
 }

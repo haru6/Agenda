@@ -12,7 +12,8 @@
 
         <activity
             android:name=".FormularioActivy"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/app_formulario">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

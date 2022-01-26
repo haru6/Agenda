@@ -58,15 +58,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/formulario_email" />
 
-        <Button
-            android:id="@+id/formulario_btn_salvar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_stars" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
