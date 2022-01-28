@@ -23,13 +23,18 @@ class AlunoDAO (var context: Context): SQLiteOpenHelper(context, "Agenda", null,
 
     fun inserir(aluno: Aluno) {
         val db: SQLiteDatabase = writableDatabase
+        val contentValues = dados(aluno)
+        db.insert("Alunos", null, contentValues)
+    }
+
+    private fun dados(aluno: Aluno): ContentValues{
         val contentValues: ContentValues = ContentValues()
         contentValues.put("Nome", aluno.nome)
         contentValues.put("Endereco", aluno.endereco)
         contentValues.put("Telefone", aluno.telefone)
         contentValues.put("Email", aluno.email)
         contentValues.put("Nota", aluno.estrela)
-        db.insert("Alunos", null, contentValues)
+        return contentValues
     }
 
 
@@ -52,6 +57,19 @@ class AlunoDAO (var context: Context): SQLiteOpenHelper(context, "Agenda", null,
         }
         cursor.close()
         return alunos
+    }
+
+    fun deleta(aluno: Aluno) {
+        val db: SQLiteDatabase = writableDatabase
+        val params: Array<String> = arrayOf( aluno.id.toString() )
+        db.delete("Alunos", "id= ?", params)
+    }
+
+    fun altera(aluno: Aluno) {
+        val db: SQLiteDatabase = writableDatabase
+        val params: Array<String> = arrayOf(aluno.id.toString())
+        val contentValues = dados(aluno)
+        db.update("Alunos", contentValues, "id = ?", params)
     }
 
 }

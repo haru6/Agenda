@@ -1,5 +1,6 @@
 package com.example.agenda
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,11 +15,16 @@ class FormularioActivy : AppCompatActivity() {
 
     private lateinit var formularioHelper: FormularioHelper
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formulario_activy)
         formularioHelper = FormularioHelper(this)
+        val intent: Intent = getIntent()
+        if(intent.getSerializableExtra("aluno") != null) {
+            val aluno: Aluno = intent.getSerializableExtra("aluno") as Aluno
+            formularioHelper.preencheFormulario(aluno)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -32,7 +38,13 @@ class FormularioActivy : AppCompatActivity() {
             R.id.menu_formulario_ok -> {
                 val aluno: Aluno = formularioHelper.getAluno()
                 val alunoDAO: AlunoDAO = AlunoDAO(this)
-                alunoDAO.inserir(aluno)
+
+                if(aluno.id != null ){
+                    alunoDAO.altera(aluno)
+                }
+                else{
+                    alunoDAO.inserir(aluno)
+                }
                 alunoDAO.close()
                 Toast.makeText(this@FormularioActivy, "Aluno " + aluno.nome + " salvo", Toast.LENGTH_SHORT).show()
                 finish()
@@ -40,4 +52,5 @@ class FormularioActivy : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }
