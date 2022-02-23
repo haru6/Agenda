@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Agenda">
 
         <activity
-            android:name=".FormularioActivy"
+            android:name=".ui.activity.FormularioActivy"
             android:exported="false"
             android:label="@string/app_formulario">
 
@@ -23,8 +23,9 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.ListaAlunosActivity"
             android:exported="true">
+            android:label="Lista Alunos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

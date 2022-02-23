@@ -1,8 +1,10 @@
-package com.example.agenda
+package com.example.agenda.helper
 
 import android.widget.EditText
 import android.widget.RatingBar
+import com.example.agenda.R
 import com.example.agenda.model.Aluno
+import com.example.agenda.ui.activity.FormularioActivy
 
 class FormularioHelper(var activity: FormularioActivy){
 
@@ -10,7 +12,7 @@ class FormularioHelper(var activity: FormularioActivy){
     var campoEndereco: EditText
     var campoTelefone: EditText
     var campoEmail: EditText
-    var campoEstrela: RatingBar
+    //var campoEstrela: RatingBar
 
     private var aluno: Aluno
 
@@ -19,14 +21,14 @@ class FormularioHelper(var activity: FormularioActivy){
         campoEndereco = activity.findViewById(R.id.formulario_address)
         campoTelefone = activity.findViewById(R.id.formulario_phone)
         campoEmail = activity.findViewById(R.id.formulario_email)
-        campoEstrela = activity.findViewById(R.id.formulario_stars)
+//        campoEstrela = activity.findViewById(R.id.formulario_stars)
         aluno = Aluno()
     }
 
 
     fun getAluno(): Aluno{
         this.aluno = Aluno(this.aluno.id, campoNome.text.toString(), campoEndereco.text.toString(),
-            campoTelefone.text.toString(), campoEmail.text.toString(), campoEstrela.numStars)
+            campoTelefone.text.toString(), campoEmail.text.toString() /*campoEstrela.numStars*/)
         return aluno
     }
 
@@ -35,7 +37,7 @@ class FormularioHelper(var activity: FormularioActivy){
         campoEndereco.setText(aluno.endereco)
         campoTelefone.setText(aluno.telefone)
         campoEmail.setText(aluno.email)
-        campoEstrela.progress = aluno.estrela
+//        campoEstrela.progress = aluno.estrela
         this.aluno = aluno
     }
 }

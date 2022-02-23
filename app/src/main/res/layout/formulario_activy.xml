@@ -3,51 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".FormularioActivy">
+        android:layout_height="wrap_content"
+        tools:context=".ui.activity.FormularioActivy"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/formulario_name"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
             android:layout_height="wrap_content"
             android:hint="@string/nome"
-            app:layout_constraintBottom_toTopOf="@+id/formulario_address"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:inputType="textCapWords"/>
 
         <EditText
             android:id="@+id/formulario_address"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
             android:layout_height="wrap_content"
-            android:hint="@string/endereco"
-            app:layout_constraintBottom_toTopOf="@+id/formulario_phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteX="-26dp" />
+            android:hint="@string/endereco" />
 
         <EditText
             android:id="@+id/formulario_phone"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:inputType="phone"
             android:layout_height="wrap_content"
-            android:hint="@string/telefone"
-            app:layout_constraintBottom_toTopOf="@+id/formulario_email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:hint="@string/telefone" />
 
         <EditText
             android:id="@+id/formulario_email"
             android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            app:layout_constraintBottom_toTopOf="@+id/formulario_stars"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:hint="@string/email" />
 
-        <RatingBar
+        <!--RatingBar
             android:id="@+id/formulario_stars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,8 +50,15 @@
             android:numStars="5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formulario_email" />
+            app:layout_constraintTop_toBottomOf="@+id/formulario_email" /-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--utton
+            android:id="@+id/btn_save"
+            android:layout_margin="8dp"
+            android:text="@string/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/-->
+
+    </LinearLayout>
 
 </ScrollView>

@@ -2,11 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.agenda.FormularioActivy">
-
-    <item android:id="@+id/menu_formulario_ok"
-        android:title="@string/ok"
-        android:icon="@drawable/ic_confirmar"
+    tools:context="com.example.agenda.ui.activity.FormularioActivy">
+    <item android:title="@string/save"
+        android:icon="@drawable/ic_action_salvar"
+        android:id="@+id/menu_formulario_salvar"
         app:showAsAction="always"/>
-
 </menu>

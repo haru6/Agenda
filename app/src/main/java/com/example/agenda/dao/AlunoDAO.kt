@@ -33,7 +33,7 @@ class AlunoDAO (var context: Context): SQLiteOpenHelper(context, "Agenda", null,
         contentValues.put("Endereco", aluno.endereco)
         contentValues.put("Telefone", aluno.telefone)
         contentValues.put("Email", aluno.email)
-        contentValues.put("Nota", aluno.estrela)
+       // contentValues.put("Nota", aluno.estrela)
         return contentValues
     }
 
@@ -52,7 +52,7 @@ class AlunoDAO (var context: Context): SQLiteOpenHelper(context, "Agenda", null,
             aluno.endereco = cursor.getString(cursor.getColumnIndex("Endereco"))
             aluno.telefone = cursor.getString(cursor.getColumnIndex("Telefone"))
             aluno.email = cursor.getString(cursor.getColumnIndex("Email"))
-            aluno.estrela = cursor.getInt(cursor.getColumnIndex("Nota"))
+            //aluno.estrela = cursor.getInt(cursor.getColumnIndex("Nota"))
             alunos.add(aluno)
         }
         cursor.close()

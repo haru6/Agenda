@@ -8,5 +8,6 @@
     <string name="save">Salvar</string>
     <string name="add">+</string>
     <string name="ok">OK</string>
+    <string name="chave_aluno">aluno</string>
 
 </resources>
